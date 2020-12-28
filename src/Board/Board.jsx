@@ -3,7 +3,30 @@ import Square from "../Square/Square";
 import "./Board.css";
 
 class Board extends Component {
-  state = {};
+  state = {
+    squares: [
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+      { displayValue: "" },
+    ],
+  };
+
+  setRandomValue = () => {
+    console.log("Set Random Value");
+  };
 
   moveRight = () => {
     console.log("Move Right");
@@ -22,11 +45,11 @@ class Board extends Component {
   };
 
   render = () => {
-    return (
-      <div className="board-container">
-        <Square />
-      </div>
-    );
+    const squares = this.state.squares.map((square) => (
+      <Square displayValue={square.displayValue} />
+    ));
+
+    return <div className="board-container">{squares}</div>;
   };
 }
 

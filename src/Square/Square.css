@@ -1,7 +1,11 @@
 .square-container {
-    background-color: var(--square-background-color);
-    display: inline-block;
-    width: 22%;
-    height: 21.5%;
-    margin: 10px;
+  background-color: var(--square-background-color);
+  display: inline-block;
+  width: 21%;
+  height: 21%;
+  margin: 10px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 100px;
+  color: #fff;
 }

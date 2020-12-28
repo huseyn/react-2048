@@ -11,8 +11,8 @@ app variables
   --main-font: 'Orbitron', sans-serif;
 
   /* board dimensions */
-  --board-height: 72%;
-  --board-width: 36%;
+  --board-height: 600px;
+  --board-width: 600px;
 }
 
 /*
