@@ -1,0 +1,5 @@
+.board-container {
+    background-color: var(--board-background-color);
+    height: var(--board-height);
+    width: var(--board-width);
+  }
