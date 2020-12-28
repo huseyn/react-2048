@@ -4,7 +4,8 @@ app variables
 
 :root {
   /* background colors */
-  --board-background-color: #696969;
+  --board-background-color: #dda4a4;
+  --square-background-color: #ddc7c7;
 
   /* font */
   --main-font: 'Orbitron', sans-serif;

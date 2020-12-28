@@ -1,7 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Board from "./Board";
-import Square from '../Square/Square';
 
 describe("Board", () => {
   let wrapper;
