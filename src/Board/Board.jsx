@@ -1,16 +1,17 @@
-import React, {Component} from 'react'
-import './Board.css'
+import React, { Component } from "react";
+import Square from "../Square/Square";
+import "./Board.css";
 
 class Board extends Component {
-    state= {
+  state = {};
 
-    }
-
-    render = () => {
-        return (
-            <div className='board-container'></div>
-        )
-    }
+  render = () => {
+    return (
+      <div className="board-container">
+        <Square />
+      </div>
+    );
+  };
 }
 
-export default Board
+export default Board;
