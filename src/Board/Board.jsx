@@ -32,22 +32,24 @@ class Board extends Component {
     ],
   };
 
-  setRandomValue = () => {
+  setRandomValue = (init) => {
     let { squares } = this.state;
-    const index1 = Math.floor(Math.random() * squares.length);
-    
 
-    let index2 = Math.floor(Math.random() * squares.length);
-    while (index1 === index2)
-      index2 = Math.floor(Math.random() * squares.length);
+    const rowIndex = Math.floor(Math.random() * squares.length);
+    let colIndex = Math.floor(Math.random() * squares.length);
 
-    squares[index2][index1] = this.updateDisplayValue(
-      squares[index2][index1],
-      "2"
-    );
+    if (init) {
+      while (rowIndex === colIndex)
+        colIndex = Math.floor(Math.random() * squares.length);
 
-    squares[index1][index2] = this.updateDisplayValue(
-      squares[index1][index2],
+      squares[rowIndex][colIndex] = this.updateDisplayValue(
+        squares[rowIndex][colIndex],
+        "2"
+      );
+    }
+
+    squares[colIndex][rowIndex] = this.updateDisplayValue(
+      squares[colIndex][rowIndex],
       "2"
     );
 
@@ -85,7 +87,7 @@ class Board extends Component {
     }
   }
   componentDidMount() {
-    this.setRandomValue();
+    this.setRandomValue(false);
     document.addEventListener("keydown", this.executeFunction, false);
   }
   componentWillUnmount() {
