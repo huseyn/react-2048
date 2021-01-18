@@ -35,13 +35,21 @@ class Board extends Component {
   setRandomValue = () => {
     let { squares } = this.state;
     const index1 = Math.floor(Math.random() * squares.length);
-    squares[index1] = this.updateDisplayValue(squares[index1], "2");
+    
 
     let index2 = Math.floor(Math.random() * squares.length);
     while (index1 === index2)
       index2 = Math.floor(Math.random() * squares.length);
 
-    squares[index2] = this.updateDisplayValue(squares[index2], "2");
+    squares[index2][index1] = this.updateDisplayValue(
+      squares[index2][index1],
+      "2"
+    );
+
+    squares[index1][index2] = this.updateDisplayValue(
+      squares[index1][index2],
+      "2"
+    );
 
     this.setState({ squares });
 
@@ -86,7 +94,6 @@ class Board extends Component {
 
   render = () => {
     const one_dimension_arr = [].concat(...this.state.squares);
-    console.log("one d a", one_dimension_arr);
 
     const squares = one_dimension_arr.map((square) => (
       <Square key={square.id} square={square} />
