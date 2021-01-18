@@ -35,8 +35,13 @@ class Board extends Component {
   setRandomValue = (init) => {
     let { squares } = this.state;
 
-    const rowIndex = Math.floor(Math.random() * squares.length);
+    let rowIndex = Math.floor(Math.random() * squares.length);
     let colIndex = Math.floor(Math.random() * squares.length);
+
+    while (squares[rowIndex][colIndex].displayValue !== "") {
+      rowIndex = Math.floor(Math.random() * squares.length);
+      colIndex = Math.floor(Math.random() * squares.length);
+    }
 
     if (init) {
       while (rowIndex === colIndex)
@@ -54,8 +59,6 @@ class Board extends Component {
     );
 
     this.setState({ squares });
-
-    console.log(squares);
   };
 
   updateDisplayValue = (obj, value) => {
@@ -87,7 +90,7 @@ class Board extends Component {
     }
   }
   componentDidMount() {
-    this.setRandomValue(false);
+    this.setRandomValue(true);
     document.addEventListener("keydown", this.executeFunction, false);
   }
   componentWillUnmount() {
