@@ -5,22 +5,30 @@ import "./Board.css";
 class Board extends Component {
   state = {
     squares: [
-      { id: 1, displayValue: "" },
-      { id: 2, displayValue: "" },
-      { id: 3, displayValue: "" },
-      { id: 4, displayValue: "" },
-      { id: 5, displayValue: "" },
-      { id: 6, displayValue: "" },
-      { id: 7, displayValue: "" },
-      { id: 8, displayValue: "" },
-      { id: 9, displayValue: "" },
-      { id: 10, displayValue: "" },
-      { id: 11, displayValue: "" },
-      { id: 12, displayValue: "" },
-      { id: 13, displayValue: "" },
-      { id: 14, displayValue: "" },
-      { id: 15, displayValue: "" },
-      { id: 16, displayValue: "" },
+      [
+        { id: 1, displayValue: "" },
+        { id: 2, displayValue: "" },
+        { id: 3, displayValue: "" },
+        { id: 4, displayValue: "" },
+      ],
+      [
+        { id: 5, displayValue: "" },
+        { id: 6, displayValue: "" },
+        { id: 7, displayValue: "" },
+        { id: 8, displayValue: "" },
+      ],
+      [
+        { id: 9, displayValue: "" },
+        { id: 10, displayValue: "" },
+        { id: 11, displayValue: "" },
+        { id: 12, displayValue: "" },
+      ],
+      [
+        { id: 13, displayValue: "" },
+        { id: 14, displayValue: "" },
+        { id: 15, displayValue: "" },
+        { id: 16, displayValue: "" },
+      ],
     ],
   };
 
@@ -77,11 +85,22 @@ class Board extends Component {
   }
 
   render = () => {
-    const squares = this.state.squares.map((square) => (
-      <Square displayValue={square.displayValue} />
+    const one_dimension_arr = [].concat(...this.state.squares);
+    console.log("one d a", one_dimension_arr);
+
+    const squares = one_dimension_arr.map((square) => (
+      <Square key={square.id} square={square} />
     ));
 
-    return <div className="board-container">{squares}</div>;
+    /**
+     * 
+     * const squares = this.state.squares.map((subArray) => {
+      if (Array.isArray(subArray))
+        subArray.map((square) => <Square square={square} />);
+    });
+     */
+
+    return <div className='board-container'>{squares}</div>;
   };
 }
 
